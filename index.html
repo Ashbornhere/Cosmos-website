@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COSMOS — Explore What Lies Beyond.</title>
+<meta name="description" content="COSMOS is an interactive guide to the Solar System, stars, galaxies, black holes and the missions that found them.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="wordmark">COSMOS</a>
+    <nav class="primary-nav" id="primary-nav">
+      <a href="#solar-system">Solar System</a>
+      <a href="#planets">Planets</a>
+      <a href="#stars">Stars</a>
+      <a href="#galaxies">Galaxies</a>
+      <a href="#black-holes">Black Holes</a>
+      <a href="#missions">Missions</a>
+      <a href="#timeline">Timeline</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-planet" aria-hidden="true">
+      <div class="planet-body"></div>
+      <div class="planet-ring"></div>
+      <div class="planet-glow"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-kicker">A field guide to the observable universe</p>
+      <h1 class="hero-title">COSMOS</h1>
+      <p class="hero-subtitle">Explore What Lies Beyond.</p>
+      <a href="#solar-system" class="btn-explore">
+        <span>Explore the Cosmos</span>
+      </a>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- SOLAR SYSTEM -->
+  <section class="section" id="solar-system">
+    <div class="section-header">
+      <h2>The Solar System</h2>
+      <p>One star, eight planets, and everything caught in its gravity.</p>
+    </div>
+
+    <div class="orrery-wrap">
+      <div class="orrery" id="orrery" role="img" aria-label="Diagram of the eight planets orbiting the Sun">
+        <div class="sun"></div>
+        <!-- orbit rings + planet dots injected by script.js from PLANET_DATA -->
+      </div>
+    </div>
+
+    <div class="solar-facts">
+      <div class="fact-card">
+        <span class="fact-value">4.6B</span>
+        <span class="fact-label">years since the Solar System formed</span>
+      </div>
+      <div class="fact-card">
+        <span class="fact-value">99.86%</span>
+        <span class="fact-label">of the system's mass is in the Sun</span>
+      </div>
+      <div class="fact-card">
+        <span class="fact-value">~400</span>
+        <span class="fact-label">known moons across all planets</span>
+      </div>
+      <div class="fact-card">
+        <span class="fact-value">828,000 km/h</span>
+        <span class="fact-label">the Sun's speed around the galactic core</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANETS -->
+  <section class="section alt" id="planets">
+    <div class="section-header">
+      <h2>The Planets</h2>
+      <p>Eight worlds, in order from the Sun. Select one to see it up close.</p>
+    </div>
+    <div class="planet-grid" id="planet-grid">
+      <!-- planet cards injected by script.js -->
+    </div>
+  </section>
+
+  <!-- STARS -->
+  <section class="section" id="stars">
+    <div class="section-header">
+      <h2>Stars</h2>
+      <p>Furnaces of fusion, and the nearest, brightest, and strangest among them.</p>
+    </div>
+    <div class="card-row" id="star-row">
+      <!-- star cards injected by script.js -->
+    </div>
+  </section>
+
+  <!-- GALAXIES -->
+  <section class="section alt" id="galaxies">
+    <div class="section-header">
+      <h2>Galaxies</h2>
+      <p>Island universes of stars, gas and dark matter, bound by gravity across unimaginable distance.</p>
+    </div>
+    <div class="card-row" id="galaxy-row">
+      <!-- galaxy cards injected by script.js -->
+    </div>
+  </section>
+
+  <!-- BLACK HOLES -->
+  <section class="section" id="black-holes">
+    <div class="section-header">
+      <h2>Black Holes</h2>
+      <p>Regions where gravity has won completely. Nothing that crosses the horizon returns.</p>
+    </div>
+    <div class="card-row" id="blackhole-row">
+      <!-- black hole cards injected by script.js -->
+    </div>
+  </section>
+
+  <!-- SPACE MISSIONS -->
+  <section class="section alt" id="missions">
+    <div class="section-header">
+      <h2>Space Missions</h2>
+      <p>The machines and crews that turned questions about the sky into answers.</p>
+    </div>
+    <div class="mission-grid" id="mission-grid">
+      <!-- mission cards injected by script.js -->
+    </div>
+  </section>
+
+  <!-- COSMIC TIMELINE -->
+  <section class="section" id="timeline">
+    <div class="section-header">
+      <h2>Cosmic Timeline</h2>
+      <p>From the first fraction of a second to right now.</p>
+    </div>
+    <div class="timeline" id="timeline-track">
+      <!-- timeline entries injected by script.js -->
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="wordmark small">COSMOS</span>
+    <p>Placeholder astronomical data for early development. Built to be wired up to live astronomy APIs and real-time 3D bodies.</p>
+  </div>
+</footer>
+
+<!-- Detail overlay for planets/stars/etc. -->
+<div class="detail-overlay" id="detail-overlay">
+  <div class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+    <button class="detail-close" id="detail-close" aria-label="Close">&times;</button>
+    <div id="detail-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
